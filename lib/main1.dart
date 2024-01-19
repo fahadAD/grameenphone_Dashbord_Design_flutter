@@ -80,3 +80,146 @@ class _BottomNavState extends State<BottomNav> {
     );
   }
 }
+
+
+
+
+
+
+
+   int index=0;
+   final List<Widget> lists=[
+     Container(color: Colors.red),
+     Container(color: Colors.green),
+     Container(color: Colors.orangeAccent),
+     Container(color: Colors.indigo),
+   ];
+   final PageStorageBucket _bucket=PageStorageBucket();
+   Widget currentList= Container(color: Colors.teal);
+
+
+
+
+
+
+    body: PageStorage(bucket: _bucket, child: currentList,),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.purple,
+        shape:  CircleBorder(),
+        onPressed: () {
+         setState(() {
+           currentList= Container(color: Colors.teal);
+         });
+         },
+        child: Icon(Icons.home,color: Colors.white),),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+   bottomNavigationBar: BottomAppBar(
+ shape: const CircularNotchedRectangle(),
+     child: Container(
+       height: 60,
+       child:   Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: [
+           Row(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               MaterialButton(
+              minWidth: 40,
+              onPressed: () {
+              setState(() {
+                currentList=Container(color: Colors.red);
+                index=0;
+              });
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+           Icon(
+             Icons.dashboard,
+             color: currentList==0?Colors.blue:Colors.blueGrey,
+           ),
+                Text("Dashbord",
+                style: TextStyle(color: currentList==0?Colors.blue:Colors.blueGrey,),
+                )
+              ],
+            ),
+            ),
+               MaterialButton(
+                 minWidth: 40,
+                 onPressed: () {
+                   setState(() {
+                     currentList=Container(color: Colors.green);
+                     index=1;
+                   });
+                 },
+                 child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Icon(
+                       Icons.camera,
+                       color: currentList==1?Colors.blue:Colors.blueGrey,
+                     ),
+                     Text("Camera",
+                       style: TextStyle(color: currentList==1?Colors.blue:Colors.blueGrey,),
+                     )
+                   ],
+                 ),
+               ),
+             ],
+           ),//left Tab
+           Row(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: [
+               MaterialButton(
+                 minWidth: 40,
+                 onPressed: () {
+                   setState(() {
+                     currentList=Container(color: Colors.orangeAccent);
+                     index=2;
+                   });
+                 },
+                 child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Icon(
+                       Icons.chat,
+                       color: currentList==2?Colors.blue:Colors.blueGrey,
+                     ),
+                     Text("Comment",
+                       style: TextStyle(color: currentList==2?Colors.blue:Colors.blueGrey,),
+                     )
+                   ],
+                 ),
+               ),
+               MaterialButton(
+                 minWidth: 40,
+                 onPressed: () {
+                   setState(() {
+                     currentList=Container(color: Colors.indigo);
+                     index=3;
+                   });
+                 },
+                 child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Icon(
+                       Icons.face,
+                       color: currentList==3?Colors.blue:Colors.blueGrey,
+                     ),
+                     Text("Men",
+                       style: TextStyle(color: currentList==3?Colors.blue:Colors.blueGrey,),
+                     )
+                   ],
+                 ),
+               ),
+             ],
+           ),//right Tab
+         ],
+       ),
+     ),
+   ),
+
+
+
+
+
